@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/about' , to: "pages#about"
   resources :games, only: [:index,:show]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
