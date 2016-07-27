@@ -1,17 +1,16 @@
 ActiveAdmin.register Game do
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
 
+  index do
+    column :title do |g|
+      link_to g.title, g.website,  :target => '_blank'
+    end
+    column :website do |g|
+      link_to g.title, g.website,  :target => '_blank'
+    end
+    actions defaults: true
+  end
+
+  permit_params :title, :website,:image
 
 end
