@@ -3,4 +3,6 @@ class Game < ApplicationRecord
    validates :website, :url => true
    validates :image, :url => true
 
+   has_many :gameplays
+
 end

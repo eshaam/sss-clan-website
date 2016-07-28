@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   devise_for :members
-
+  resources :gameplays
   resources :members, excpet: [:destroy]
 
   get '/about' , to: "pages#about"

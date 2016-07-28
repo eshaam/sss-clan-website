@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727141148) do
+ActiveRecord::Schema.define(version: 20160728083342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,20 @@ ActiveRecord::Schema.define(version: 20160727141148) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  end
+
+  create_table "gameplays", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "member_id"
+    t.uuid     "game_id"
+    t.string   "title"
+    t.string   "link"
+    t.text     "description"
+    t.text     "slug"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["game_id"], name: "index_gameplays_on_game_id", using: :btree
+    t.index ["member_id"], name: "index_gameplays_on_member_id", using: :btree
+    t.index ["slug"], name: "index_gameplays_on_slug", unique: true, using: :btree
   end
 
   create_table "games", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|

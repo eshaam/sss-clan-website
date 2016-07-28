@@ -11,6 +11,9 @@ class Member < ApplicationRecord
   friendly_id :psn_gamertag, use: :slugged, :use => :history
 
 
+  has_many :gameplays
+
+
   def password_required?
     new_record? ? false : super
   end

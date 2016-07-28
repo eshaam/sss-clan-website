@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+
+
+    <p class="text-muted">
+      <%= gameplay.created_at.strftime("%b %d, %Y")%>
+    </p>
+    <h1>  <%= link_to gameplay.title, "#" %></h1>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <%= gameplay.link %>
+      </div>
+    </div>
+
+  </div>
+</div>
