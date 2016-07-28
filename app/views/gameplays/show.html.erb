@@ -1,11 +1,17 @@
 <div class="container push-top">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-9">
       <div class="light-well">
-        <h2 class="page-header text-center"><%= link_to @gameplay.title, "#" %></h2>
+        <h2 class="page-header"><%= link_to @gameplay.title, "#" %></h2>
 
         <p class="text-muted">
-          <%= @gameplay.created_at.strftime("%b %d, %Y")%>
+          Posted on: <%= @gameplay.created_at.strftime("%b %d, %Y")%>
+          <% if current_member %>
+            <% if current_member.id == @gameplay.member_id %>
+              <%= link_to "Edit Gameplay", edit_gameplay_path(@gameplay) %> |
+              <%= link_to 'Destroy Gameplay',  @gameplay,  method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          <% end %>
         </p>
 
         <hr>
@@ -23,6 +29,30 @@
         </div>
 
 
+      </div>
+    </div>
+
+    <div class="col-sm-3">
+      <br>
+      <div class="jumbotron">
+        <div class="">
+          <p class="text-muted">
+            sSs Member:
+          </p>
+          <h3><%= @gameplay.member.psn_gamertag %></h3>
+          <%= link_to "View Profile", member_path(@gameplay.member)%>
+          <br>
+          <br>
+        </div>
+        <div class="">
+          <p class="text-muted">
+            Playing:
+          </p>
+          <h5><%= @gameplay.game.title %></h5>
+          <%= image_tag(@gameplay.game.image, class: "img-responsive")%>
+          <br>
+          <br>
+        </div>
       </div>
     </div>
   </div>
