@@ -32,6 +32,8 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'devise', '> 4.x'
 gem 'active_bootstrap_skin'
 gem "validate_url"
+gem 'friendly_id', '~> 5.1.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
