@@ -57,20 +57,32 @@
 <div class="container">
 
 
+  <% @features.each_with_index do |f,i| %>
 
   <div class="row featurette">
     <div class="col-md-7">
-      <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-      <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+      <h2 class="featurette-heading"><%= link_to f.title, gameplay_path(f) %></h2>
+      <p class="lead">Posted on <%= f.created_at.strftime("%b %d, %Y")%> by <%= link_to f.member.psn_gamertag, member_path(f.member)%>. </p>
     </div>
     <div class="col-md-5">
-      <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+
+      <% if f.is_image %>
+          <img class="img-responsive" src="<%= f.link %>" />
+      <% end %>
+
+      <% if f.is_youtube %>
+          <iframe width="500" height="315" src="https://www.youtube.com/embed/<%= f.youtube_video_id_from_link%>" frameborder="0" allowfullscreen></iframe>
+      <% end %>
+
     </div>
   </div>
 
   <hr class="featurette-divider">
 
-  <div class="row featurette">
+  <% end %>
+
+
+   <!-- <div class="row featurette">
     <div class="col-md-7 col-md-push-5">
       <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
       <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
@@ -93,7 +105,7 @@
   </div>
 
   <hr class="featurette-divider">
+ -->
 
-  <!-- /END THE FEATURETTES -->
 
 </div>
