@@ -50,6 +50,8 @@
           </p>
           <h5><%= @gameplay.game.title %></h5>
           <%= image_tag(@gameplay.game.image, class: "img-responsive")%>
+          <%= link_to "View more Gameplay", game_path(@gameplay.game)%>
+
           <br>
           <br>
         </div>

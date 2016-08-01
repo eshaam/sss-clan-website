@@ -5,4 +5,9 @@ class Game < ApplicationRecord
 
    has_many :gameplays
 
+
+   extend FriendlyId
+   friendly_id :title, use: :slugged, :use => :history
+
+
 end
