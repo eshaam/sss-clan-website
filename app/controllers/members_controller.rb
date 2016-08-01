@@ -6,7 +6,7 @@ class MembersController < ApplicationController
 
   def show
     @member = Member.friendly.find(params[:id])
-    @gameplays = @member.gameplays.order("created_at DESC")
+    @gameplays = @member.gameplays.order("created_at DESC").paginate(:page => params[:page])
   end
 
   def edit

@@ -10,6 +10,7 @@ class Gameplay < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged, :use => :history
 
+  self.per_page = 3
 
   def is_image
     return true if link.include? 'imgur'

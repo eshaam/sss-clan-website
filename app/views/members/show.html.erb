@@ -21,9 +21,9 @@
   <div class="row">
     <div class="col-sm-12">
       <h3>My Gamplays: </h3>
+
       <%= render partial: "gameplays/gameplay", collection: @gameplays %>
-
-
+      <%= will_paginate @gameplays %>
     </div>
   </div>
 
