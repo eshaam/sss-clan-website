@@ -1,31 +1,65 @@
-<div class="container push-top ">
+<div class="container push-top">
+  <div class="row push-top-bottom ">
 
-  <div class="page-header">
-    <h1>Member profile - <%= @member.psn_gamertag %></h1>
-  </div>
 
-  <% if member_signed_in? %>
+    <div class="col-sm-3">
 
-    <div class="row">
-      <div class="col-sm-4 col-sm-offset-4">
-        <div class="light-well">
+      <% if member_signed_in? %>
 
-          <%= link_to "Post New Gameplay", new_gameplay_path , class: 'btn btn-primary btn-block'%>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="light-well">
+
+              <%= link_to "Post New Gameplay", new_gameplay_path , class: 'btn btn-primary btn-block'%>
+
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+
+
+      <div class="jumbotron">
+        <div class="">
+          <p class="text-muted">
+            sSs Member:
+          </p>
+          <h2><%= @member.psn_gamertag %></h2>
+          <p class="text-muted">
+            Location:
+          </p>
+          <h4><%= @member.location %></h4>
+
+          <p class="text-muted">
+            Date Joined:
+          </p>
+          <h4><%= @member.date_joined %></h4>
+
+
+          <p class="text-muted">
+            Bio:
+          </p>
+          <h4><%= @member.bio %></h4>
+
+        </div>
+        <div class="">
 
         </div>
       </div>
     </div>
 
-  <% end %>
-  <hr>
-  <div class="row">
-    <div class="col-sm-12">
-      <h3>My Gamplays: </h3>
 
-      <%= render partial: "gameplays/gameplay", collection: @gameplays %>
-      <%= will_paginate @gameplays %>
+
+    <div class="col-sm-9">
+      <div class="light-well">
+
+        <%= render partial: "gameplays/gameplay", collection: @gameplays %>
+        <%= will_paginate @gameplays %>
+
+      </div>
     </div>
+
+
+
   </div>
-
-
 </div>

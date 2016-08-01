@@ -39,6 +39,8 @@
                   <li><%= link_to "Sign In", new_member_session_path %></li>
                   <% else %>
                     <li><%= link_to  current_member.psn_gamertag , "/members/#{current_member.psn_gamertag}" %></li></li>
+                    <li><%= link_to  "Edit Profile" , edit_member_path(current_member) %></li></li>
+
                     <!-- <li><%= link_to  "Edit Profile" , edit_member_path(current_member.psn_gamertag) %></li></li> -->
 
                     <li><%= link_to  "Sign Out" , destroy_member_session_path, method: :delete %></li></li>
