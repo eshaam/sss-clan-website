@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801133906) do
+ActiveRecord::Schema.define(version: 20160801142952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,10 +64,9 @@ ActiveRecord::Schema.define(version: 20160801133906) do
     t.uuid     "game_id"
     t.string   "title"
     t.string   "link"
-    t.text     "description"
     t.text     "slug"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_gameplays_on_game_id", using: :btree
     t.index ["member_id"], name: "index_gameplays_on_member_id", using: :btree
     t.index ["slug"], name: "index_gameplays_on_slug", unique: true, using: :btree
@@ -121,7 +120,7 @@ ActiveRecord::Schema.define(version: 20160801133906) do
 
   create_table "settings", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "name"
-    t.string   "value"
+    t.text     "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_settings_on_name", unique: true, using: :btree
