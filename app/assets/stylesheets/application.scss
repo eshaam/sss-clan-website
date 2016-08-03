@@ -7,8 +7,11 @@
 
 header {
   width: 100%;
-  background: url(logo.jpg) black no-repeat center center fixed;
+  background: asset-url(logo);
   height: 42%;
+  background-position: center center fixed;
+  background-color: black;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
