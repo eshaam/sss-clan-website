@@ -1,4 +1,41 @@
-<div class="container push-top">
+<div class="row">
+
+  <div class="col-sm-8 main-container " >
+    <% if @gameplay.is_image %>
+        <img class="img-responsive" src="<%= @gameplay.link %>" />
+    <% end %>
+
+    <% if @gameplay.is_youtube %>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @gameplay.youtube_video_id_from_link%>" frameborder="0" allowfullscreen></iframe>
+    <% end %>
+  </div>
+
+  <div class="col-sm-4">
+      <h1><%=  @gameplay.title %></h1>
+      <p class="lead">
+          Posted on: <%= @gameplay.created_at.strftime("%b %d, %Y")%> by <%= link_to @gameplay.member.psn_gamertag, members_path(@gameplay.member)%>
+      </p>
+      <% if current_member %>
+        <% if current_member.id == @gameplay.member_id %>
+          <p>
+          <%= link_to "Edit Gameplay", edit_gameplay_path(@gameplay) %> |
+          <%= link_to 'Destroy Gameplay',  @gameplay,  method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+        <% end %>
+      <% end %>
+      <div class="light-well">
+        <h5><%= @gameplay.game.title %></h5>
+        <% image_tag(@gameplay.game.image, class: "img-responsive")%>
+        <%= link_to "View more Gameplay", game_path(@gameplay.game)%>
+
+      </div>
+  </div>
+
+
+</div>
+
+
+<!-- <div class="container push-top">
   <div class="row ">
     <div class="col-sm-9">
       <div class="light-well">
@@ -58,4 +95,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

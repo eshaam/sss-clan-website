@@ -1,7 +1,23 @@
+.full-height {
+  height: 100%;
+}
 .push-top {
   padding-top: 5em;
+}
+.push-top-1 {
+  padding-top: 1em;
 }
 .push-top-bottom {
   padding-top: 1em;
   padding-bottom: 1em;
+}
+.push-sides {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.large-icon-size {
+  font-size: 10em;
+}
+.fill-height {
+  min-height: 40%;
 }

@@ -1,4 +1,40 @@
-<div class="container push-top ">
+<div class="row">
+  <div class="col-sm-4">
+      <h1>sSs Members</h1>
+      <p class="lead">
+        These are the <%= @members.count %> members of the sSs Clan
+      </p>
+  </div>
+
+  <div class="col-sm-8 main-container " >
+
+      <% @members.each do |member| %>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="jumbotron clearfix">
+          <div class="col-sm-3">
+            <h2><%= member.psn_gamertag %></h2>
+          </div>
+
+          <div class="col-sm-9">
+            <h4>Date Joined: <%= member.date_joined %></h4>
+            <h4>Location: <%= member.location %></h4>
+          </div>
+          <hr>
+          <p class="text-right"><a class="btn btn-primary btn-lg" href="/members/<%= member.slug %>" role="button">View <%= member.psn_gamertag %> Profile</a></p>
+
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+
+  </div>
+</div>
+
+
+<!-- <div class="container push-top ">
 
   <div class="page-header">
     <h1>Members <small>These are the members of the sSs Clan</small></h1>
@@ -23,4 +59,4 @@
   <% end %>
 
 
-</div>
+</div> -->
