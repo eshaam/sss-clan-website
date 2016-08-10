@@ -1,15 +1,23 @@
 Rails.application.routes.draw do
 
-
+  root "home#index"
+  
   devise_for :members
-  resources :gameplays
+  resources :gameplays do
+    resources :comments
+  end
   resources :members, excpet: [:destroy]
 
   get '/about' , to: "pages#about"
   resources :games, only: [:index,:show]
 
+  resources :comments do
+    resources :comments
+  end
+
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  root "home#index"
+
 end

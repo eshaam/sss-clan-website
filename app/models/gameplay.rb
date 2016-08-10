@@ -3,6 +3,8 @@ class Gameplay < ApplicationRecord
   belongs_to :member
   belongs_to :game
 
+  has_many :comments, as: :commentable
+
   validates :link, :url => true
   validates :title, :length => { :minimum => 10 }
   validates :title, :link, :presence => true

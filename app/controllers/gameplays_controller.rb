@@ -39,7 +39,7 @@ class GameplaysController < ApplicationController
 
 
   def show
-    @gameplay = Gameplay.friendly.includes(:game,:member).find(params[:id])
+    @gameplay = Gameplay.friendly.includes(:game,:member,:comments).find(params[:id])
   end
 
 

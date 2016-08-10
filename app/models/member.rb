@@ -12,7 +12,7 @@ class Member < ApplicationRecord
 
 
   has_many :gameplays
-
+  has_many :comments
 
   def password_required?
     new_record? ? false : super
