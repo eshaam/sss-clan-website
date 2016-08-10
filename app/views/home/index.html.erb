@@ -14,15 +14,20 @@
         <h2 class="featurette-heading"><%= link_to f.title, gameplay_path(f) %></h2>
         <p class="lead">Posted on <%= f.created_at.strftime("%b %d, %Y")%> by <%= link_to f.member.psn_gamertag, member_path(f.member)%>. </p>
         <%= link_to "View Gameplay", gameplay_path(f), class: 'btn btn-primary '%>
+        <br>
       </div>
       <div class="col-md-5 text-center">
 
         <% if f.is_image %>
-            <img class="img-responsive" src="<%= f.link %>" />
+        <a href="<%= gameplay_path(f) %>" class="thumbnail">
+          <img class="img-responsive" src="<%= f.link %>" />
+        </a>
         <% end %>
 
         <% if f.is_youtube %>
+        <a href="<%= gameplay_path(f) %>" class="thumbnail">
           <span class="glyphicon glyphicon-play large-icon-size" aria-hidden="true"></span>
+          </a>
         <% end %>
 
       </div>

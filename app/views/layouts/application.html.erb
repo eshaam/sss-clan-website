@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="full-height">
+<html class="full-height" lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -8,37 +8,29 @@
 
     <title>sSs Clan - <%= content_for?(:page_title) ? yield(:page_title) : "Gaming Battlefield & Call of Duty & Rainbow 6" %></title>
     <%= csrf_meta_tags %>
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-
   </head>
 
   <body class="full-height">
     <header>
       <%= render 'layouts/nav'%>
     </header>
-    <div class=" container">
+    <div class=" container push-bottom">
+
+        <% flash.each do |key, value| %>
+          <div class="alert alert-info">
+            <a href="#" data-dismiss="alert" class="close">×</a>
+              <ul>
+                <li>
+                  <%= value %>
+                </li>
+              </ul>
+          </div>
+        <% end %>
 
         <%= yield %>
     </div>
-
-
-
-    <% flash.each do |key, value| %>
-      <div class="alert alert-info">
-        <a href="#" data-dismiss="alert" class="close">×</a>
-          <ul>
-            <li>
-              <%= value %>
-            </li>
-          </ul>
-      </div>
-    <% end %>
-
-
 
     <footer >
       <div class="container">
