@@ -9,6 +9,11 @@ class MembersController < ApplicationController
   def show
     @member = Member.friendly.find(params[:id])
     @gameplays = @member.gameplays.order("created_at DESC").paginate(:page => params[:page])
+    if current_member
+      @recent_gameplays = Gameplay.where.not(member_id: current_member.id).includes(:member).order("created_at DESC").limit(30)
+      @recent_comments = Comment.where.not(member_id: current_member.id).where(commentable_type: 'Gameplay').all.includes(:member).order("created_at DESC").limit(30)
+
+    end
   end
 
   def edit
