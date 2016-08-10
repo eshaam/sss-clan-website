@@ -15,6 +15,7 @@ class Gameplay < ApplicationRecord
   self.per_page = 3
 
   before_save :ensure_corrected_imgur_link
+  before_save :ensure_corrected_youtube_link
 
   def ensure_corrected_imgur_link
     if is_image
@@ -22,6 +23,14 @@ class Gameplay < ApplicationRecord
         self.link = "http://i.imgur.com/#{imgur_id}.jpg"
     end
   end
+
+  def ensure_corrected_youtube_link
+    if link.include? 'youtu.be'
+        uri = Embiggen::URI.new(URI(link))
+        self.link = uri.expand(:timeout => 8).to_s.chomp! "&feature=youtu.be"
+    end
+  end
+
 
   def is_image
     return true if link.include? 'imgur'
