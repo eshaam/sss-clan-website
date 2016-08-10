@@ -14,7 +14,13 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
+.simple-header {
+  background: none !important;
+  height: auto !important;
+  nav {
+    margin-bottom: 0;
+  }
+}
 footer {
   padding: 32px 16px;
   color: #9e9e9e;

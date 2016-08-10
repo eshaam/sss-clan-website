@@ -13,7 +13,7 @@
   </head>
 
   <body class="full-height">
-    <header>
+    <header class="<%= content_for?(:header_class) ? yield(:header_class) : "" %>">
       <%= render 'layouts/nav'%>
     </header>
     <div class=" container push-bottom">
