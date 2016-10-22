@@ -41,8 +41,9 @@ class Gameplay < ApplicationRecord
   end
 
   def youtube_video_id_from_link
-    link.split('=').last
+    link.split('=').lastr
   end
+
 
 
 end
